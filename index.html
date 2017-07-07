@@ -2,8 +2,57 @@
 <html>
 <head>
 	<title>Protocolo de Triagem Nutricional</title>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<script type="text/javascript"></script>
+
+<h1>Formulário</h1>
+<form id='formulario_triagem' method="POST">
+
+<br>
+Nome
+<input id='name' type='text' name='Nome' value="heloise">
+
+<br>
+Idade
+<input id='age' type='number' name='Idade' value="21">
+
+<br>
+Peso
+<input id='weight' type='number'  name='Peso' value="53">
+
+<br>
+Altura
+<input id='height' type='number' name='Altura' value="160">
+
+<br>
+<input type='submit' value=Enviar>
+
+</form>
+
+<script type="text/javascript">
+$( document ).ready(function() { //carregar funcao depois do carregamento da pag
+
+    var form = $('#formulario_triagem'); 
+    form.submit(function(e){
+    	alert('Formulário enviado');
+    	
+
+    }
+    );
+   
+
+});
+	var age= $(age).val();
+	var weight= $(weight).val();
+	var height= $(height).val();
+	var imc = weight/(height*height);
+//if (age<60)
+
+
+
+</script>
+
 </body>
 </html>
