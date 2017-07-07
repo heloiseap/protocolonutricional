@@ -36,18 +36,30 @@ $( document ).ready(function() { //carregar funcao depois do carregamento da pag
 
     var form = $('#formulario_triagem'); 
     form.submit(function(e){
-    	alert('Formulário enviado');
-    	
+
+    	e.preventDefault(e); //evitar que a pagina se recarregue
+  
+       	var name= $('#name').val();
+	    var age= $('#age').val();
+	    var weight= $('#weight').val();
+	    var height= $('#height').val();
+	    var imc = weight/(height*height);
+
+    
+       	console.log('nome: ' + name)
+       	console.log('idade ' + age)
+       	console.log('peso: ' + weight)
+       	console.log('altura: ' + height)
+       	console.log('imc: ' + imc)
+
+	
+
 
     }
     );
    
 
 });
-	var age= $(age).val();
-	var weight= $(weight).val();
-	var height= $(height).val();
-	var imc = weight/(height*height);
 //if (age<60)
 
 
