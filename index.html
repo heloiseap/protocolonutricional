@@ -4,7 +4,21 @@
 	<title>Protocolo de Triagem Nutricional</title>
 	<script
   src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<style>
+	#quest_jovem{
+		display: none;
+	}
+</style>
+
 </head>
+
+<style>
+	#quest_idoso{
+		display: none;
+	}
+</style>
+
+
 <body>
 
 <h1>Formulário</h1>
@@ -19,15 +33,142 @@ Idade
 <input id='age' type='number' name='Idade' value="21">
 
 <br>
-Peso
-<input id='weight' type='number'  name='Peso' value="53">
+Peso atual(kg)
+<input id='current_weight' type='number'  name='Peso Atual' value="53">
 
 <br>
-Altura
+Peso usual(kg)
+<input id='usual_weight' type='number'  name='Peso Usual' value="53">
+
+<br>
+Altura(cm)
 <input id='height' type='number' name='Altura' value="160">
 
 <br>
-<input type='submit' value=Enviar>
+<input id='step1'type='submit' value=Enviar>
+<br>
+<br>
+Questionário
+<br> 
+<div id='questionario'></div>
+<br>
+<div id='quest_jovem'>
+	<br>
+	<b>Prejuizo de Estado Nutricional</b>
+	
+	<br>
+	<br>
+	Perda de peso: (se for mais que 5% abrir isso aqui)
+	<br>
+	<input type="radio" name="PP0" value='zero'> Nenhuma
+	<br>
+	<input type="radio" name="PP1" value='5%em3meses'>  em 3 meses
+	<br>
+	<input type="radio" name="PP2" value='5%em2meses'> 5% em 2 meses
+	<br>
+	<input type="radio" name="PP3" value='5%em1mes'>  5% em 1 mes
+
+	<br>
+	<br>
+	Ingestão Alimentar:
+	<br>
+	<input type="radio" name="IA_normal" value='normal'> Normal
+	<br>
+	<input type="radio" name="IA_baixa1" value='baixa1'> de 50 a 75% das necessidades
+	<br>
+	<input type="radio" name="IA_baixa2" value='baixa2'> de 25 a 50% das necessidades
+	<br>
+	<input type="radio" name="IA_baixa3" value='baixa3'>  de 0 a 25% das necessidades
+    
+    <br>
+	<br>
+	IMC e Estado geral:
+	<br>
+	<input type="radio" name="IMC_EG_normal" value='normais'> Normal
+	<br>
+	<input type="radio" name="IMC_EG_grave" value='grave'> Entre 18,5 a 20,5. Queda do estado geral
+	<br>
+	<input type="radio" name="IMC_EG_gravissimo" value='gravissimo'> Menor que 18,5. Queda do estado geral
+
+	<br>
+	<br>
+	Gravidade da Doença:
+	<br>
+	<input type="radio" name="Ausente" value='ausente'> Ausente
+	<br>
+	<input type="radio" name="GD_leve" value='leve'> Leve
+	<br>
+	<input type="radio" name="GD_moderada" value='moderada'> Moderada
+	<br>
+	<input type="radio" name="GD_grave" value='grave'>  Grave
+	<br>
+   
+</div>
+
+<div id='quest_idoso'>
+    <br>
+	<b>Prejuizo de Estado Nutricional</b>
+	
+	<br>
+	<br>
+	Nos ultimos três meses, houve diminuição da ingestão alimentar devido a perda de apetite, problemas digestivos ou dificuldade para mastigar?
+	<br>
+	<input type="radio" name="IA_DSevera" value='severa'> Diminuição severa
+	<br>
+	<input type="radio" name="IA_DModerada" value='moderada'> Diminuição moderada
+	<br>
+	<input type="radio" name="IA_normal" value='normal'> Sem diminuição
+	
+    <br>
+	<br>
+	Perda de peso nos últimos três meses
+	<br>
+	<input type="radio" name="PP_maisque3" value='mais que 3'> Superior a três quilos
+	<br>
+	<input type="radio" name="PP_naosabe" value='naosabe'> Não sabe informar
+	<br>
+	<input type="radio" name="PP_1a3" value='1 a 3'> Entre um a três quilos
+	<br>
+	<input type="radio" name="PP_zero" value='zero'> Sem perda de peso
+
+	<br>
+	<br>
+	Mobilidade
+	<br>
+	<input type="radio" name="Mob_restrita" value='restrita'> Restrito ao leito ou cadeira de rodas
+	<br>
+	<input type="radio" name="Mob_deambula" value='naosabe'> Deambula mas não é capaz de sair de casa
+	<br>
+	<input type="radio" name="Mob_normal" value='normal'> Normal
+	
+	<br>
+	<br>
+	Estresse psicológico ou doença aguda nos últimos três meses?
+	<br>
+	<input type="radio" name="Com_estresse" value='sim'> Sim
+	<br>
+	<input type="radio" name="Sem_estresse" value='nao'> Não
+	
+	<br>
+	<br>
+	Problemas neuropsicológicos
+	<br>
+	<input type="radio" name="PN_grave" value='grave'> Demência ou depressão grave
+	<br>
+	<input type="radio" name="PN_leve" value='leve'> Demência leve
+	<br>
+	<input type="radio" name="PN_ausente" value='naotem'> Sem problemas psicológicos
+
+	<br>
+    <input type='submit' value=Enviar>
+    <br>
+
+
+	
+
+
+</div>
+
 
 </form>
 
@@ -43,17 +184,30 @@ $( document ).ready(function() { //carregar funcao depois do carregamento da pag
 	    var age= $('#age').val();
 	    var weight= $('#weight').val();
 	    var height= $('#height').val();
-	    var imc = weight/(height*height);
+	    var imc = weight*Math.pow(10,4)/(height*height);
 
     
-       	console.log('nome: ' + name)
-       	console.log('idade ' + age)
-       	console.log('peso: ' + weight)
-       	console.log('altura: ' + height)
-       	console.log('imc: ' + imc)
+       	console.log('nome: ' + name);
+       	console.log('idade ' + age);				
+       	console.log('peso: ' + weight);
+       	console.log('altura: ' + height);
+       	console.log('imc: ' + imc);
 
-	
+       	if (age<60) {
+       	    var quest_jovem =  $('#quest_jovem');
+       	    $('#quest_jovem').show();
+       	    	
+       		var questionario = $('#questionario').html(quest_jovem);
 
+
+       	}
+       	else {
+       		var quest_idoso = $('#quest_idoso');
+       		$('#quest_idoso').show();
+       		var questionario = $('#questionario').html(quest_idoso);
+       		//adicionar IMC nas contas e a questao de qndo n for possivel conseguir 
+    console.log(questionario);
+       	}
 
     }
     );
