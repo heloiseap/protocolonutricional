@@ -238,10 +238,10 @@ $( document ).ready(function() { //carregar funcao depois do carregamento da pag
    
    
        	if (age<60) {
-       	    var quest_jovem =  $('#quest_jovem1');
+       	    var quest_jovem1 =  $('#quest_jovem1');
        	    $('#quest_jovem1').show();
        	    	
-       		var questionario = $('#questionario').html(quest_jovem);
+       		var questionario = $('#questionario').html(quest_jovem1);
      		
 
        	}
@@ -254,28 +254,32 @@ $( document ).ready(function() { //carregar funcao depois do carregamento da pag
        		
     
        	}
-    //console.log(age);
+    
     }
     );
 
 
-    var step_young1 = $('#step_young1')
+    var step_young1 = $('#step_young1');
     $('#step_young1').on('click',function(e){
+    	
     	e.preventDefault(e);
-    	
-    	console.log('hhah');
-    	
+    	  	
     	var sickness = $('#Sickness');
     	var unintentional_WL = $('#Unintentional_WL');
     	var ingestion_re = $('#Ingestion_reduction');
 
-    	//nao abre daqui pra baixo 
+    	
+    	if (sickness==1||unintentional_WL==1||ingestion_re==1){
+    		console.log('aiai');
+    		var quest_jovem2 = $('#quest_jovem2');
+    		$('#quest_jovem2').show();
+    		var questionario = $('#questionario').html(quest_jovem2);
+    		
 
-    	if (sickness==1|unintentional_WL==1|ingestion_re==1){
-    		$('#step_young2').on('click',function(e){
-    			e.preventDefault(e);
-    			console.log('deu');
-    		})
+    		// $('#step_young2').on('click',function(e){
+    		// 	e.preventDefault(e);
+    		// 	console.log('deu');
+
     		}
     	
 
