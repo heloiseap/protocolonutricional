@@ -5,17 +5,25 @@
 	<script
   src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <style>
-	#quest_jovem{
+	#quest_jovem1{
 		display: none;
 	}
 </style>
 
-</head>
+<style>
+	#quest_jovem2{
+		display: none;
+	}
+</style>
+
 
 <style>
 	#quest_idoso{
 		display: none;
 	}
+
+</head>
+
 </style>
 
 
@@ -44,65 +52,105 @@ Peso usual(kg)
 Altura(cm)
 <input id='height' type='number' name='Altura' value="160">
 
+
 <br>
-<input id='step1'type='submit' value=Enviar>
+Data: 
+<input type='datetime-local' name:'Data'>
+
+
+<br>
+<input id='step1' type='submit' value=Enviar>
 <br>
 <br>
+
 Questionário
 <br> 
 <div id='questionario'></div>
 <br>
-<div id='quest_jovem'>
+
+<div id='quest_jovem1'>
+<br>
+Portador de doença grave, mau estado geral ou UTI?
+<br>
+<input type='radio' name='Sickness' value=1> Sim
+<input type='radio' name='Sickness' value=0> Não
+
+<br>
+Houve perda de peso não intencional? 
+<br> 
+<input type='radio' name='Unintentional_WL' value=1> Sim
+<input type='radio' name='Unintentional_WL' value=0> Não
+
+<br>
+Houve redução na ingestão alimentar na ultima semana?
+<br>
+<input type='radio' name='Ingestion_reduction' value=1> Sim
+<input type='radio' name='Ingestion_reduction' value=0> Não
+
+<br>
+<input id='step_young1' type='submit' value=Enviar>	
+
+</div>
+
+
+<div id='quest_jovem2'>
 	<br>
 	<b>Prejuizo de Estado Nutricional</b>
 	
 	<br>
 	<br>
-	Perda de peso: (se for mais que 5% abrir isso aqui)
+	Houve perda de peso não intencional? (se for mais que 5% abrir isso aqui)
 	<br>
-	<input type="radio" name="PP0" value='zero'> Nenhuma
+	<input type="radio" name="PP" value=0> Nenhuma
 	<br>
-	<input type="radio" name="PP1" value='5%em3meses'>  em 3 meses
+	<input type="radio" name="PP" value=1> Significatica em 3 meses
 	<br>
-	<input type="radio" name="PP2" value='5%em2meses'> 5% em 2 meses
+	<input type="radio" name="PP" value=2> Significatica em 2 meses
 	<br>
-	<input type="radio" name="PP3" value='5%em1mes'>  5% em 1 mes
+	<input type="radio" name="PP" value=3>  Significatica em 1 mes
 
 	<br>
 	<br>
-	Ingestão Alimentar:
+	Houve redução na ingestão alimentar na ultima semana?
 	<br>
-	<input type="radio" name="IA_normal" value='normal'> Normal
+	<input type="radio" name="IA" value=0> Não
 	<br>
-	<input type="radio" name="IA_baixa1" value='baixa1'> de 50 a 75% das necessidades
+	<input type="radio" name="IA" value=1> Sim, de 50 a 75% das necessidades
 	<br>
-	<input type="radio" name="IA_baixa2" value='baixa2'> de 25 a 50% das necessidades
+	<input type="radio" name="IA" value=2> Sim, de 25 a 50% das necessidades
 	<br>
-	<input type="radio" name="IA_baixa3" value='baixa3'>  de 0 a 25% das necessidades
+	<input type="radio" name="IA" value=3> Sim, de 0 a 25% das necessidades
     
+
+
     <br>
 	<br>
-	IMC e Estado geral:
+	IMC e estado geral:
 	<br>
-	<input type="radio" name="IMC_EG_normal" value='normais'> Normal
+	<input type="radio" name="IMC_EG" value='0'> Normal
 	<br>
-	<input type="radio" name="IMC_EG_grave" value='grave'> Entre 18,5 a 20,5. Queda do estado geral
+	<input type="radio" name="IMC_EG" value='2'> Entre 18,5 a 20,5. Queda do estado geral
 	<br>
-	<input type="radio" name="IMC_EG_gravissimo" value='gravissimo'> Menor que 18,5. Queda do estado geral
+	<input type="radio" name="IMC_EG" value='3'> Menor que 18,5. Queda do estado geral
 
 	<br>
 	<br>
 	Gravidade da Doença:
 	<br>
-	<input type="radio" name="Ausente" value='ausente'> Ausente
+	<input type="radio" name="GD" value='0'> Ausente
 	<br>
-	<input type="radio" name="GD_leve" value='leve'> Leve
+	<input type="radio" name="GD" value='1'> Leve
 	<br>
-	<input type="radio" name="GD_moderada" value='moderada'> Moderada
+	<input type="radio" name="GD" value='2'> Moderada
 	<br>
-	<input type="radio" name="GD_grave" value='grave'>  Grave
+	<input type="radio" name="GD" value='3'>  Grave
 	<br>
-   
+    
+    <br>
+    <input id='step_young2' type='submit' value=Enviar>
+    <br>
+    <br>
+
 </div>
 
 <div id='quest_idoso'>
@@ -113,54 +161,54 @@ Questionário
 	<br>
 	Nos ultimos três meses, houve diminuição da ingestão alimentar devido a perda de apetite, problemas digestivos ou dificuldade para mastigar?
 	<br>
-	<input type="radio" name="IA_DSevera" value='severa'> Diminuição severa
+	<input type="radio" name="PA" value=0> Diminuição severa
 	<br>
-	<input type="radio" name="IA_DModerada" value='moderada'> Diminuição moderada
+	<input type="radio" name="PA" value=1> Diminuição moderada
 	<br>
-	<input type="radio" name="IA_normal" value='normal'> Sem diminuição
+	<input type="radio" name="PA" value=2> Sem diminuição
 	
     <br>
 	<br>
 	Perda de peso nos últimos três meses
 	<br>
-	<input type="radio" name="PP_maisque3" value='mais que 3'> Superior a três quilos
+	<input type="radio" name="PP" value=0> Superior a três quilos
 	<br>
-	<input type="radio" name="PP_naosabe" value='naosabe'> Não sabe informar
+	<input type="radio" name="PP" value=1> Não sabe informar
 	<br>
-	<input type="radio" name="PP_1a3" value='1 a 3'> Entre um a três quilos
+	<input type="radio" name="PP" value=2> Entre um a três quilos
 	<br>
-	<input type="radio" name="PP_zero" value='zero'> Sem perda de peso
+	<input type="radio" name="PP" value=3> Sem perda de peso
 
 	<br>
 	<br>
 	Mobilidade
 	<br>
-	<input type="radio" name="Mob_restrita" value='restrita'> Restrito ao leito ou cadeira de rodas
+	<input type="radio" name="Mob" value=0> Restrito ao leito ou cadeira de rodas
 	<br>
-	<input type="radio" name="Mob_deambula" value='naosabe'> Deambula mas não é capaz de sair de casa
+	<input type="radio" name="Mob" value=1> Deambula mas não é capaz de sair de casa
 	<br>
-	<input type="radio" name="Mob_normal" value='normal'> Normal
+	<input type="radio" name="Mob" value=2> Normal
 	
 	<br>
 	<br>
 	Estresse psicológico ou doença aguda nos últimos três meses?
 	<br>
-	<input type="radio" name="Com_estresse" value='sim'> Sim
+	<input type="radio" name="Stress" value=0> Sim
 	<br>
-	<input type="radio" name="Sem_estresse" value='nao'> Não
+	<input type="radio" name="Stress" value=2> Não
 	
 	<br>
 	<br>
 	Problemas neuropsicológicos
 	<br>
-	<input type="radio" name="PN_grave" value='grave'> Demência ou depressão grave
+	<input type="radio" name="PN" value=0> Demência ou depressão grave
 	<br>
-	<input type="radio" name="PN_leve" value='leve'> Demência leve
+	<input type="radio" name="PN" value=1> Demência leve
 	<br>
-	<input type="radio" name="PN_ausente" value='naotem'> Sem problemas psicológicos
+	<input type="radio" name="PN" value=2> Sem problemas psicológicos
 
 	<br>
-    <input type='submit' value=Enviar>
+    <input id='step_elder' type='submit' value=Enviar>
     <br>
 
 
@@ -176,48 +224,70 @@ Questionário
 $( document ).ready(function() { //carregar funcao depois do carregamento da pag
 
     var form = $('#formulario_triagem'); 
-    form.submit(function(e){
+    $('#step1').on('click',function(e){
 
     	e.preventDefault(e); //evitar que a pagina se recarregue
   
        	var name= $('#name').val();
 	    var age= $('#age').val();
-	    var weight= $('#weight').val();
+	    var current_weight= $('#current_weight').val();
+	    var usual_weight= $('#usual_weight').val();
 	    var height= $('#height').val();
-	    var imc = weight*Math.pow(10,4)/(height*height);
-
-    
-       	console.log('nome: ' + name);
-       	console.log('idade ' + age);				
-       	console.log('peso: ' + weight);
-       	console.log('altura: ' + height);
-       	console.log('imc: ' + imc);
-
+	    var imc = current_weight*Math.pow(10,4)/(height*height);
+	    var weight_loss = 100*(1-(current_weight/usual_weight));
+   
+   
        	if (age<60) {
-       	    var quest_jovem =  $('#quest_jovem');
-       	    $('#quest_jovem').show();
+       	    var quest_jovem =  $('#quest_jovem1');
+       	    $('#quest_jovem1').show();
        	    	
        		var questionario = $('#questionario').html(quest_jovem);
-
+     		
 
        	}
        	else {
        		var quest_idoso = $('#quest_idoso');
        		$('#quest_idoso').show();
        		var questionario = $('#questionario').html(quest_idoso);
-       		//adicionar IMC nas contas e a questao de qndo n for possivel conseguir 
-    console.log(questionario);
-       	}
+       		//adicionar IMC nas contas e a questao de qndo n for possivel conseguir > tem q botar o peso e a altura como opcional 
 
+       		
+    
+       	}
+    //console.log(age);
     }
     );
-   
 
+
+    var step_young1 = $('#step_young1')
+    $('#step_young1').on('click',function(e){
+    	e.preventDefault(e);
+    	
+    	console.log('hhah');
+    	
+    	var sickness = $('#Sickness');
+    	var unintentional_WL = $('#Unintentional_WL');
+    	var ingestion_re = $('#Ingestion_reduction');
+
+    	//nao abre daqui pra baixo 
+
+    	if (sickness==1|unintentional_WL==1|ingestion_re==1){
+    		$('#step_young2').on('click',function(e){
+    			e.preventDefault(e);
+    			console.log('deu');
+    		})
+    		}
+    	
+
+    	
+    	});
+
+    $('#step_elder').on('click',function(e){
+    	e.preventDefault(e);
+    	
+    	console.log('show');
+    });
 });
-//if (age<60)
-
-
-
 </script>
 
 </body>
