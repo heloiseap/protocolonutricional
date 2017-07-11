@@ -36,6 +36,12 @@
 	}
 </style>
 
+<style>
+	#result_form{
+		display: none;
+	}
+</style>
+
 
 </head>
 
@@ -234,6 +240,10 @@ Houve redução na ingestão alimentar na ultima semana?
 
 </div>
 
+<div>
+	<span id='result_form'></span>
+</div>
+
 
 </form>
 
@@ -359,7 +369,7 @@ $( document ).ready(function() { //carregar funcao depois do carregamento da pag
     	}
 
     	var escore_idoso = pa + pp + mob + stress + imc_rank;
-    	var result_elder = 0;
+    	var result = 0;
 
     	var normal = 'Estado nutricional normal. Paciente será reavaliado em 7 dias.';
     	var risco = 'Risco de desnutrição. Será realizada avaliação nutricional completa em até 24h.'
@@ -368,23 +378,26 @@ $( document ).ready(function() { //carregar funcao depois do carregamento da pag
     	
     	switch(true){
     		case (escore_idoso>11 && escore_idoso<15):
-    		result_elder = normal;
+    		result = normal;
     		break;
 
     		case (escore_idoso>7 && escore_idoso<12):
-    		result_elder = risco;
+    		result = risco;
     		break;
 
     		case (escore_idoso>=0 && escore_idoso<8):
-    		result_elder = desnutrido;
+    		result = desnutrido;
     		break;
 
     		default:
-    		result_elder = 'erro';
+    		result = 'erro';
     	}
 
 
-    	console.log(result_elder); 
+    	console.log(result);
+
+    	$('#result_form').show();
+    	$('#result_form').html('Resultado:' + result); 
 
     	
 
@@ -421,6 +434,8 @@ $('#step_young2').on('click',function(e){
     }
 
     console.log(result);
+    $('#result_form').show();
+    $('#result_form').html('Resultado: ' + result);
 
 
     }
