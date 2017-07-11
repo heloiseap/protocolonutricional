@@ -127,23 +127,23 @@ Houve redução na ingestão alimentar na ultima semana?
 	<br>
 	IMC e estado geral:
 	<br>
-	<input type="radio" name="IMC_EG" value='0'> Normal
+	<input type="radio" name="IMC_EG" value=0> Normal
 	<br>
-	<input type="radio" name="IMC_EG" value='2'> Entre 18,5 a 20,5. Queda do estado geral
+	<input type="radio" name="IMC_EG" value=2> Entre 18,5 a 20,5. Queda do estado geral
 	<br>
-	<input type="radio" name="IMC_EG" value='3'> Menor que 18,5. Queda do estado geral
+	<input type="radio" name="IMC_EG" value=3> Menor que 18,5. Queda do estado geral
 
 	<br>
 	<br>
 	Gravidade da Doença:
 	<br>
-	<input type="radio" name="GD" value='0'> Ausente
+	<input type="radio" name="GD" value=0> Ausente
 	<br>
-	<input type="radio" name="GD" value='1'> Leve
+	<input type="radio" name="GD" value=1> Leve
 	<br>
-	<input type="radio" name="GD" value='2'> Moderada
+	<input type="radio" name="GD" value=2> Moderada
 	<br>
-	<input type="radio" name="GD" value='3'>  Grave
+	<input type="radio" name="GD" value=3>  Grave
 	<br>
     
     <br>
@@ -264,34 +264,48 @@ $( document ).ready(function() { //carregar funcao depois do carregamento da pag
     	
     	e.preventDefault(e);
     	  	
-    	var sickness = $('#Sickness');
-    	var unintentional_WL = $('#Unintentional_WL');
-    	var ingestion_re = $('#Ingestion_reduction');
+    	var sickness = parseInt($("input[name=Sickness]:checked").val());
 
-    	
-    	if (sickness==1||unintentional_WL==1||ingestion_re==1){
-    		console.log('aiai');
+    	var unintentional_WL = parseInt($("input[name=Unintentional_WL]:checked").val());
+
+    	var ingestion_re = parseInt($("input[name=Ingestion_reduction]:checked").val());
+
+
+
+    	if ( sickness==1 || unintentional_WL==1 || ingestion_re==1){
+    		console.log('ok');
     		var quest_jovem2 = $('#quest_jovem2');
     		$('#quest_jovem2').show();
-    		var questionario = $('#questionario').html(quest_jovem2);
+
+    		var quest_jovem1 = $('#quest_jovem1').html(quest_jovem2);
+    	} 	
     		
-
-    		// $('#step_young2').on('click',function(e){
-    		// 	e.preventDefault(e);
-    		// 	console.log('deu');
-
-    		}
-    	
-
+    		
+    	else {
+    		console.log('0');
+    	}
     	
     	});
+
 
     $('#step_elder').on('click',function(e){
     	e.preventDefault(e);
     	
     	console.log('show');
+
     });
+
 });
+
+$('#step_young2').on('click',function(e){
+e.preventDefault(e);
+console.log('deu');
+}
+);
+
+
+    	
+
 </script>
 
 </body>
