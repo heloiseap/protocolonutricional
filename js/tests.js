@@ -9,7 +9,10 @@ $(document).ready(function () {
         date: '1985-08-17'
     }
 
-    
+    function init() {
+        fillPatientData();
+        fillQuestions();
+    }
 
     function fillPatientData() {
         $('#name').val(patientData.name);
@@ -20,16 +23,13 @@ $(document).ready(function () {
         $('#date').val(patientData.date);
     }
 
-    $('input[type=date]').each(function(i,el){
-        $(el).val('1980-01-01');
-    });
+    function fillQuestions() {
+        $('input[type=radio]').each(function(i,el){
+            if ($(el).val() == 1) {
+                $(el).attr('checked', 'checked');
+            }
+        });
+    }
 
-    $('input[type=radio]').each(function(i,el){
-        if ($(el).val() == 1) {
-            $(el).attr('checked', 'checked');
-        }
-    });
-
-
-
+    init();
 });
