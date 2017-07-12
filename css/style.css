@@ -1,35 +1,23 @@
 #quest_jovem1 {
-		display: none;
+	display: none;
 }
-	
 
-	
 #quest_jovem2 {
-		display: none;
+	display: none;
 }
-	
 
+#quest_idoso {
+	display: none;
+}
 
-	
-		#quest_idoso {
-			display: none;
-		}
-	
+#PP_significativa {
+	display: none;
+}
 
-	
-		#PP_significativa {
-			display: none;
-		}
-	
+#Estado_geral {
+	display: none;
+}
 
-	
-		#Estado_geral {
-			display: none;
-		}
-	
-
-	
-		#result_form {
-			display: none;
-		}
-	
+#result_form {
+	display: none;
+}
