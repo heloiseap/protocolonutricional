@@ -12,13 +12,13 @@
 
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	 crossorigin="anonymous">
+	    crossorigin="anonymous">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-	 crossorigin="anonymous">
+	    crossorigin="anonymous">
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	 crossorigin="anonymous"></script>
+	    crossorigin="anonymous"></script>
 
 </head>
 
@@ -31,36 +31,32 @@
 
 	<form id='formulario_triagem' method="POST">
 
-		<br> Nome
-		<input id='name' type='text' name='Nome' value="heloise">
+		<div>
+			<br> Nome
+			<input id='name' type='text' name='Nome' value="heloise">
 
-		<br> Idade
-		<input id='age' type='number' name='Idade' value="21">
+			<br> Idade
+			<input id='age' type='number' name='Idade' value="21">
 
-		<br> Peso atual(kg)
-		<input id='current_weight' type='number' name='Peso Atual' value="40">
+			<br> Peso atual(kg)
+			<input id='current_weight' type='number' name='Peso Atual' value="40">
 
-		<br> Peso usual(kg)
-		<input id='usual_weight' type='number' name='Peso Usual' value="53">
+			<br> Peso usual(kg)
+			<input id='usual_weight' type='number' name='Peso Usual' value="53">
 
-		<br> Altura(cm)
-		<input id='height' type='number' name='Altura' value="160">
-
-
-		<br> Data:
-		<input class='date' type='date' name: 'Data'>
-		<br>
-
-		<button id='step1' type='button' class="btn btn-default btn">Próximo
-		<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </button>
-
-		<br>
-		<br>
+			<br> Altura(cm)
+			<input id='height' type='number' name='Altura' value="160">
 
 
-		<br>
+			<br> Data:
+			<input class='date' type='date' name: 'Data'>
+			<br>
+
+			<button id='step1' type='button' class="btn btn-default btn">Próximo
+			<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </button>
+		</div>
+
 		<div id='questionario'></div>
-		<br>
 
 		<div id='quest_jovem1'>
 
@@ -82,135 +78,133 @@
 			<input type='radio' name='Ingestion_reduction' value=0> Não
 
 			<br>
-			<div class="btn-group" role="group" aria-label="...">
+			<div class="btn-group" role="group">
 				<button id='step_young1' type='button' class="btn btn-default btn">Próximo
-		    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </button>
-
-
+		    	<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </button>
 			</div>
 
+		</div>
 
-			<div id='quest_jovem2'>
-				<br>
-				<b>Prejuizo de Estado Nutricional</b>
+		<div id='quest_jovem2'>
+			<br>
+			<b>Prejuizo de Estado Nutricional</b>
 
-				<div id='PP_significativa'>
-					<br>
-					<br> A perda de peso aconteceu no(s) ultimo(s):
-					<br>
-					<input type="radio" name="PP_j" value=1> Em três meses
-					<br>
-					<input type="radio" name="PP_j" value=2> Em dois meses
-					<br>
-					<input type="radio" name="PP_j" value=3> Em um mês
-				</div>
-
+			<div id='PP_significativa'>
 				<br>
-				<br> Houve redução na ingestão alimentar na ultima semana?
+				<br> A perda de peso aconteceu no(s) ultimo(s):
 				<br>
-				<input type="radio" name="IA" value=0> Não
+				<input type="radio" name="PP_j" value=1> Em três meses
 				<br>
-				<input type="radio" name="IA" value=1> Sim, de 50 a 75% das necessidades
+				<input type="radio" name="PP_j" value=2> Em dois meses
 				<br>
-				<input type="radio" name="IA" value=2> Sim, de 25 a 50% das necessidades
-				<br>
-				<input type="radio" name="IA" value=3> Sim, de 0 a 25% das necessidades
-
-
-				<br>
-				<br> Gravidade da Doença:
-				<br>
-				<input type="radio" name="GD" value=0> Ausente
-				<br>
-				<input type="radio" name="GD" value=1> Leve
-				<br>
-				<input type="radio" name="GD" value=2> Moderada
-				<br>
-				<input type="radio" name="GD" value=3> Grave
-
-
-				<div id='Estado_geral'>
-
-					<br> Estado geral:
-					<br>
-					<input type="radio" name="EG" value=0> Normal
-					<br>
-					<input type="radio" name="EG" value=2> Queda do estado geral
-				</div>
-
-				<br>
-				<button type="button" id='step_young2' class="btn btn-default">Enviar</button>
-				<br>
-				<br>
-
+				<input type="radio" name="PP_j" value=3> Em um mês
 			</div>
 
-			<div id='quest_idoso'>
+			<br>
+			<br> Houve redução na ingestão alimentar na ultima semana?
+			<br>
+			<input type="radio" name="IA" value=0> Não
+			<br>
+			<input type="radio" name="IA" value=1> Sim, de 50 a 75% das necessidades
+			<br>
+			<input type="radio" name="IA" value=2> Sim, de 25 a 50% das necessidades
+			<br>
+			<input type="radio" name="IA" value=3> Sim, de 0 a 25% das necessidades
 
-				<br>
-				<b>Prejuizo de Estado Nutricional</b>
 
-				<br>
-				<br> Nos ultimos três meses, houve diminuição da ingestão alimentar devido a perda de apetite, problemas digestivos ou
-				dificuldade para mastigar?
-				<br>
-				<input type="radio" name="PA" value=0> Diminuição severa
-				<br>
-				<input type="radio" name="PA" value=1> Diminuição moderada
-				<br>
-				<input type="radio" name="PA" value=2> Sem diminuição
+			<br>
+			<br> Gravidade da Doença:
+			<br>
+			<input type="radio" name="GD" value=0> Ausente
+			<br>
+			<input type="radio" name="GD" value=1> Leve
+			<br>
+			<input type="radio" name="GD" value=2> Moderada
+			<br>
+			<input type="radio" name="GD" value=3> Grave
 
-				<br>
-				<br> Perda de peso nos últimos três meses
-				<br>
-				<input type="radio" name="PP" value=0> Superior a três quilos
-				<br>
-				<input type="radio" name="PP" value=1> Não sabe informar
-				<br>
-				<input type="radio" name="PP" value=2> Entre um a três quilos
-				<br>
-				<input type="radio" name="PP" value=3> Sem perda de peso
 
-				<br>
-				<br> Mobilidade
-				<br>
-				<input type="radio" name="Mob" value=0> Restrito ao leito ou cadeira de rodas
-				<br>
-				<input type="radio" name="Mob" value=1> Deambula mas não é capaz de sair de casa
-				<br>
-				<input type="radio" name="Mob" value=2> Normal
+			<div id='Estado_geral'>
 
+				<br> Estado geral:
 				<br>
-				<br> Estresse psicológico ou doença aguda nos últimos três meses?
+				<input type="radio" name="EG" value=0> Normal
 				<br>
-				<input type="radio" name="Stress" value=0> Sim
-				<br>
-				<input type="radio" name="Stress" value=2> Não
-
-				<br>
-				<br> Problemas neuropsicológicos
-				<br>
-				<input type="radio" name="PN" value=0> Demência ou depressão grave
-				<br>
-				<input type="radio" name="PN" value=1> Demência leve
-				<br>
-				<input type="radio" name="PN" value=2> Sem problemas psicológicos
-
-				<br>
-				<button type="button" id='step_elder' class="btn btn-default">Enviar</button>
-				<br>
-
+				<input type="radio" name="EG" value=2> Queda do estado geral
 			</div>
-	
-			<div>
-	<span id='result_form'></span>
-</div>
+
+			<br>
+			<button type="button" id='step_young2' class="btn btn-default">Enviar</button>
+			<br>
+			<br>
+
+		</div>
+
+		<div id='quest_idoso'>
+
+			<br>
+			<b>Prejuizo de Estado Nutricional</b>
+
+			<br>
+			<br> Nos ultimos três meses, houve diminuição da ingestão alimentar devido a perda de apetite, problemas digestivos ou
+			dificuldade para mastigar?
+			<br>
+			<input type="radio" name="PA" value=0> Diminuição severa
+			<br>
+			<input type="radio" name="PA" value=1> Diminuição moderada
+			<br>
+			<input type="radio" name="PA" value=2> Sem diminuição
+
+			<br>
+			<br> Perda de peso nos últimos três meses
+			<br>
+			<input type="radio" name="PP" value=0> Superior a três quilos
+			<br>
+			<input type="radio" name="PP" value=1> Não sabe informar
+			<br>
+			<input type="radio" name="PP" value=2> Entre um a três quilos
+			<br>
+			<input type="radio" name="PP" value=3> Sem perda de peso
+
+			<br>
+			<br> Mobilidade
+			<br>
+			<input type="radio" name="Mob" value=0> Restrito ao leito ou cadeira de rodas
+			<br>
+			<input type="radio" name="Mob" value=1> Deambula mas não é capaz de sair de casa
+			<br>
+			<input type="radio" name="Mob" value=2> Normal
+
+			<br>
+			<br> Estresse psicológico ou doença aguda nos últimos três meses?
+			<br>
+			<input type="radio" name="Stress" value=0> Sim
+			<br>
+			<input type="radio" name="Stress" value=2> Não
+
+			<br>
+			<br> Problemas neuropsicológicos
+			<br>
+			<input type="radio" name="PN" value=0> Demência ou depressão grave
+			<br>
+			<input type="radio" name="PN" value=1> Demência leve
+			<br>
+			<input type="radio" name="PN" value=2> Sem problemas psicológicos
+
+			<br>
+			<button type="button" id='step_elder' class="btn btn-default">Enviar</button>
+			<br>
+
+		</div>
+
 	</form>
-fddf
 
+	<div>
+		<span id='result_form'></span>
+	</div>
 
-<script src="js/scripts.js"></script>
-<script src="js/tests.js"></script>
+	<script src="js/scripts.js"></script>
+	<script src="js/tests.js"></script>
 </body>
 
 </html>

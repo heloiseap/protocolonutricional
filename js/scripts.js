@@ -1,6 +1,5 @@
 $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
-    var form = $('#formulario_triagem');
     $('#step1').on('click', function (e) {
 
         e.preventDefault(e); //evitar que a pagina se recarregue
@@ -13,7 +12,6 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
         var imc = current_weight * Math.pow(10, 4) / (height * height);
 
         $('#imc').val(imc);
-
 
         if (age < 60) {
             var quest_jovem1 = $('#quest_jovem1');
@@ -31,8 +29,6 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
         }
     });
 
-
-    var step_young1 = $('#step_young1');
     $('#step_young1').on('click', function (e) {
 
         e.preventDefault(e);

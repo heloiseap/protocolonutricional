@@ -9,6 +9,8 @@ $(document).ready(function () {
         date: '1985-08-17'
     }
 
+    
+
     function fillPatientData() {
         $('#name').val(patientData.name);
         $('#age').val(patientData.age);
@@ -27,5 +29,7 @@ $(document).ready(function () {
             $(el).attr('checked', 'checked');
         }
     });
+
+
 
 });
