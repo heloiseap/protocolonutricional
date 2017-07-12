@@ -1,476 +1,216 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 	<title>Protocolo de Triagem Nutricional</title>
-	<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<style>
-	#quest_jovem1{
-		display: none;
-	}
-</style>
 
-<style>
-	#quest_jovem2{
-		display: none;
-	}
-</style>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
 
-
-<style>
-	#quest_idoso{
-		display: none;
-	}
-
-</style>
-
-<style>
-	#PP_significativa{
-		display: none;
-	}
-</style>
-
-<style>
-	#Estado_geral{
-		display: none;
-	}
-</style>
-
-<style>
-	#result_form{
-		display: none;
-	}
-</style>
-
-
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
 
 <body>
 
-<h1>Formulário</h1>
+	<h1>Formulário</h1>
 
-<h3>IMC: <input id='imc' disabled></input>  </h3>
+	<h3>IMC: <input id='imc' disabled></input>
+	</h3>
 
-<form id='formulario_triagem' method="POST">
+	<form id='formulario_triagem' method="POST">
 
-<br>
-Nome
-<input id='name' type='text' name='Nome' value="heloise">
+		<div id="dados_paciente">
+			<br> Nome
+			<input id='name' type='text' name='Nome' value="heloise">
 
-<br>
-Idade
-<input id='age' type='number' name='Idade' value="21">
+			<br> Idade
+			<input id='age' type='number' name='Idade' value="21">
 
-<br>
-Peso atual(kg)
-<input id='current_weight' type='number'  name='Peso Atual' value="40">
+			<br> Data:
+			<input id="date" class='date' type='date' name: 'Data'>
+			<br>
 
-<br>
-Peso usual(kg)
-<input id='usual_weight' type='number'  name='Peso Usual' value="53">
+			<button id='step1' type='button' class="btn btn-default btn">Próximo
+			<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </button>
+		</div>
 
-<br>
-Altura(cm)
-<input id='height' type='number' name='Altura' value="160">
+		<div id='questionario'></div>
 
+		<div id='quest_jovem1'>
 
-<br>
-Data: 
-<input type='datetime-local' name:'Data'>
+			Questionário
 
+			<br> Peso atual(kg)
+			<input id='current_weight' type='number' name='Peso Atual' value="40">
 
-<br>
-<input id='step1' type='submit' value=Enviar>
-<br>
-<br>
+			<br> Peso usual(kg)
+			<input id='usual_weight' type='number' name='Peso Usual' value="53">
 
+			<br> Altura(cm)
+			<input id='height' type='number' name='Altura' value="160">
 
-<br> 
-<div id='questionario'></div>
-<br>
+			<br> Portador de doença grave, mau estado geral ou UTI?
+			<br>
+			<input type='radio' name='Sickness' checked="checked" value=1> Sim
+			<input type='radio' name='Sickness' value=0> Não
 
-<div id='quest_jovem1'>
+			<br> Houve perda de peso não intencional?
+			<br>
+			<input type='radio' name='Unintentional_WL' checked="checked" value=1> Sim
+			<input type='radio' name='Unintentional_WL' value=0> Não
 
-Questionário
+			<br> Houve redução na ingestão alimentar na ultima semana?
+			<br>
+			<input type='radio' name='Ingestion_reduction' checked="checked" value=1> Sim
+			<input type='radio' name='Ingestion_reduction' value=0> Não
 
-<br>
-Portador de doença grave, mau estado geral ou UTI?
-<br>
-<input type='radio' name='Sickness' checked="checked" value=1> Sim
-<input type='radio' name='Sickness' value=0> Não
-
-<br>
-Houve perda de peso não intencional? 
-<br> 
-<input type='radio' name='Unintentional_WL' checked="checked" value=1> Sim
-<input type='radio' name='Unintentional_WL' value=0> Não
-
-<br>
-Houve redução na ingestão alimentar na ultima semana?
-<br>
-<input type='radio' name='Ingestion_reduction' checked="checked" value=1> Sim
-<input type='radio' name='Ingestion_reduction' value=0> Não
-
-<br>
-<input id='step_young1' type='submit' value=Enviar>	
-
-</div>
+			<br>
+			<div class="btn-group" role="group">
+				<button type="button" id='step_young1' class="btn btn-default">Enviar</button>
+			</div>
 
 
-<div id='quest_jovem2'>
-	<br>
-	<b>Prejuizo de Estado Nutricional</b>
-	
-	<div id='PP_significativa'>
-	<br>
-	<br>
-	A perda de peso aconteceu no(s) ultimo(s):
-	<br>
-	<input type="radio" name="PP_j" value=1> Em três meses
-	<br>
-	<input type="radio" name="PP_j" value=2> Em dois meses
-	<br>
-	<input type="radio" name="PP_j" value=3> Em um mês
-    </div>
+		</div>
 
-	<br>
-	<br>
-	Houve redução na ingestão alimentar na ultima semana?
-	<br>
-	<input type="radio" name="IA" value=0> Não
-	<br>
-	<input type="radio" name="IA" value=1> Sim, de 50 a 75% das necessidades
-	<br>
-	<input type="radio" name="IA" value=2> Sim, de 25 a 50% das necessidades
-	<br>
-	<input type="radio" name="IA" value=3> Sim, de 0 a 25% das necessidades
-    
-	
-	<br>
-	<br>
-	Gravidade da Doença:
-	<br>
-	<input type="radio" name="GD" value=0> Ausente
-	<br>
-	<input type="radio" name="GD" value=1> Leve
-	<br>
-	<input type="radio" name="GD" value=2> Moderada
-	<br>
-	<input type="radio" name="GD" value=3>  Grave
-	
+		<div id='quest_jovem2'>
+			<br>
+			<b>Prejuizo de Estado Nutricional</b>
 
-    <div id='Estado_geral'>
-    
-    <br>
-	Estado geral:
-	<br>
-	<input type="radio" name="EG" value=0> Normal
-	<br>
-	<input type="radio" name="EG" value=2> Queda do estado geral
+			<div id='PP_significativa'>
+				<br>
+				<br> A perda de peso aconteceu no(s) ultimo(s):
+				<br>
+				<input type="radio" name="PP_j" value=1> Em três meses
+				<br>
+				<input type="radio" name="PP_j" value=2> Em dois meses
+				<br>
+				<input type="radio" name="PP_j" value=3> Em um mês
+			</div>
+
+			<br>
+			<br> Houve redução na ingestão alimentar na ultima semana?
+			<br>
+			<input type="radio" name="IA" value=0> Não
+			<br>
+			<input type="radio" name="IA" value=1> Sim, de 50 a 75% das necessidades
+			<br>
+			<input type="radio" name="IA" value=2> Sim, de 25 a 50% das necessidades
+			<br>
+			<input type="radio" name="IA" value=3> Sim, de 0 a 25% das necessidades
+
+
+			<br>
+			<br> Gravidade da Doença:
+			<br>
+			<input type="radio" name="GD" value=0> Ausente
+			<br>
+			<input type="radio" name="GD" value=1> Leve
+			<br>
+			<input type="radio" name="GD" value=2> Moderada
+			<br>
+			<input type="radio" name="GD" value=3> Grave
+
+
+			<div id='Estado_geral'>
+
+				<br> Estado geral:
+				<br>
+				<input type="radio" name="EG" value=0> Normal
+				<br>
+				<input type="radio" name="EG" value=2> Queda do estado geral
+			</div>
+
+			<br>
+			<button type="button" id='step_young2' class="btn btn-default">Enviar</button>
+			<br>
+			<br>
+
+		</div>
+
+		<div id='quest_idoso'>
+
+		
+			<br> Peso atual(kg)
+			<input id='current_w' type='number' name='Peso Atual' value="40">
+			<input type="checkbox" id="current_w_box" value='teste'>Não pode-se informar.
+
+			<!-- <br> Peso usual(kg)
+			<input id='usual_w' type='number' name='Peso Usual' value="53">
+			<input type="checkbox" id="usual_w_box" value="on">Não pode-se informar.
+
+			<br> Altura(cm)
+			<input id='height_opc' type='number' name='Altura' value="160">
+			<input type="checkbox" id="height_opc_box" value="on">Não pode-se informar.   -->
+
+
+
+			<br>
+			<b>Prejuizo de Estado Nutricional</b>
+
+			<br>
+			<br> Nos ultimos três meses, houve diminuição da ingestão alimentar devido a perda de apetite, problemas digestivos ou
+			dificuldade para mastigar?
+			<br>
+			<input type="radio" name="PA" value=0> Diminuição severa
+			<br>
+			<input type="radio" name="PA" value=1> Diminuição moderada
+			<br>
+			<input type="radio" name="PA" value=2> Sem diminuição
+
+			<br>
+			<br> Perda de peso nos últimos três meses
+			<br>
+			<input type="radio" name="PP" value=0> Superior a três quilos
+			<br>
+			<input type="radio" name="PP" value=1> Não sabe informar
+			<br>
+			<input type="radio" name="PP" value=2> Entre um a três quilos
+			<br>
+			<input type="radio" name="PP" value=3> Sem perda de peso
+
+			<br>
+			<br> Mobilidade
+			<br>
+			<input type="radio" name="Mob" value=0> Restrito ao leito ou cadeira de rodas
+			<br>
+			<input type="radio" name="Mob" value=1> Deambula mas não é capaz de sair de casa
+			<br>
+			<input type="radio" name="Mob" value=2> Normal
+
+			<br>
+			<br> Estresse psicológico ou doença aguda nos últimos três meses?
+			<br>
+			<input type="radio" name="Stress" value=0> Sim
+			<br>
+			<input type="radio" name="Stress" value=2> Não
+
+			<br>
+			<br> Problemas neuropsicológicos
+			<br>
+			<input type="radio" name="PN" value=0> Demência ou depressão grave
+			<br>
+			<input type="radio" name="PN" value=1> Demência leve
+			<br>
+			<input type="radio" name="PN" value=2> Sem problemas psicológicos
+
+			<br>
+			<button type="button" id='step_elder' class="btn btn-default">Enviar</button>
+			<br>
+
+		</div>
+
+	</form>
+
+	<div>
+		<span id='result_form'></span>
 	</div>
-    
-    <br>
-    <input id='step_young2' type='submit' value=Enviar>
-    <br>
-    <br>
 
-</div>
-
-<div id='quest_idoso'>
-
-    <br>
-	<b>Prejuizo de Estado Nutricional</b>
-	
-	<br>
-	<br>
-	Nos ultimos três meses, houve diminuição da ingestão alimentar devido a perda de apetite, problemas digestivos ou dificuldade para mastigar?
-	<br>
-	<input type="radio" name="PA" value=0> Diminuição severa
-	<br>
-	<input type="radio" name="PA" value=1> Diminuição moderada
-	<br>
-	<input type="radio" name="PA" value=2> Sem diminuição
-	
-    <br>
-	<br>
-	Perda de peso nos últimos três meses
-	<br>
-	<input type="radio" name="PP" value=0> Superior a três quilos
-	<br>
-	<input type="radio" name="PP" value=1> Não sabe informar
-	<br>
-	<input type="radio" name="PP" value=2> Entre um a três quilos
-	<br>
-	<input type="radio" name="PP" value=3> Sem perda de peso
-
-	<br>
-	<br>
-	Mobilidade
-	<br>
-	<input type="radio" name="Mob" value=0> Restrito ao leito ou cadeira de rodas
-	<br>
-	<input type="radio" name="Mob" value=1> Deambula mas não é capaz de sair de casa
-	<br>
-	<input type="radio" name="Mob" value=2> Normal
-	
-	<br>
-	<br>
-	Estresse psicológico ou doença aguda nos últimos três meses?
-	<br>
-	<input type="radio" name="Stress" value=0> Sim
-	<br>
-	<input type="radio" name="Stress" value=2> Não
-	
-	<br>
-	<br>
-	Problemas neuropsicológicos
-	<br>
-	<input type="radio" name="PN" value=0> Demência ou depressão grave
-	<br>
-	<input type="radio" name="PN" value=1> Demência leve
-	<br>
-	<input type="radio" name="PN" value=2> Sem problemas psicológicos
-
-	<br>
-    <input id='step_elder' type='submit' value=Enviar>
-    <br>
-
-
-
-</div>
-
-<div>
-	<span id='result_form'></span>
-</div>
-
-
-</form>
-
-<script type="text/javascript">
-$( document ).ready(function() { //carregar funcao depois do carregamento da pag
-
-    var form = $('#formulario_triagem'); 
-    $('#step1').on('click',function(e){
-
-    	e.preventDefault(e); //evitar que a pagina se recarregue
-  
-       	var name= $('#name').val();
-	    var age= $('#age').val();
-	    var current_weight= $('#current_weight').val();
-	    var usual_weight= $('#usual_weight').val();
-	    var height= $('#height').val();
-	    var imc = current_weight*Math.pow(10,4)/(height*height);
-	    
-	    $('#imc').val(imc);
-   
-   
-       	if (age<60) {
-       	    var quest_jovem1 = $('#quest_jovem1');
-       	    $('#quest_jovem1').show();
-       	    	
-       		var questionario = $('#questionario').html(quest_jovem1);
-     		
-
-       	}
-       	else {
-       		var quest_idoso = $('#quest_idoso');
-       		$('#quest_idoso').show();
-       		var questionario = $('#questionario').html(quest_idoso);
-
-       		
-       		}   
-    }
-    );
-
-
-    var step_young1 = $('#step_young1');
-    $('#step_young1').on('click',function(e){
-    	
-    	e.preventDefault(e);
-    	  	
-    	var sickness = parseInt($("input[name=Sickness]:checked").val());
-
-    	var unintentional_WL = parseInt($("input[name=Unintentional_WL]:checked").val());
-
-    	var ingestion_re = parseInt($("input[name=Ingestion_reduction]:checked").val());
-
-
-
-    	if ( sickness==1 || unintentional_WL==1 || ingestion_re==1){
-    		console.log('ok');
-    		var quest_jovem2 = $('#quest_jovem2');
-    		$('#quest_jovem2').show();
-
-    		var quest_jovem1 = $('#quest_jovem1').html(quest_jovem2);
-    		var current_weight= $('#current_weight').val();
-    		var usual_weight= $('#usual_weight').val();
-	        var height= $('#height').val();
-	        var imc = current_weight*Math.pow(10,4)/(height*height);
-	        var weight_loss = parseInt(100*(1-(current_weight/usual_weight)));
-
-    		if(imc<=18.5){
-    			var estado_geral =$('#Estado_geral');
-    			$('#Estado_geral').show();
-
-    		}
-    		if(weight_loss>=5){
-    			var pp_significativa= $('#PP_significativa');
-    			$('#PP_significativa').show();
-    		}
-
-    		
-    	} 	
-    		
-    		
-    	else {
-    		console.log('0');
-    	}
-    	
-    	});
-
-
-    $('#step_elder').on('click',function(e){
-    	e.preventDefault(e);
-
-     //    var current_weight= $('#current_weight').val();
-	    // var usual_weight= $('#usual_weight').val();
-	    // var height= $('#height').val();
-	    // var imc = current_weight*Math.pow(10,4)/(height*height);
-	    
-    	
-    	var pa = parseInt($("input[name=PA]:checked").val());
-    	var pp = parseInt($("input[name=PP]:checked").val());
-    	var mob = parseInt($("input[name=Mob]:checked").val());
-    	var stress = parseInt($("input[name=Stress]:checked").val());
-    	var imc = parseInt($('#imc').val());
-    	var imc_rank=0;
-    	
-    	switch(true) {
-    		case (imc<19):
-    		imc_rank = 0;
-    		break;
-
-    		case (imc>=19 && imc<21):
-    		imc_rank = 1;
-    		break;
-
-    		case (imc>=21 && imc<23):
-    		imc_rank = 2;
-    		break;
-
-    		case (imc>=23):
-    		imc_rank = 3;
-    		break;
-
-    		default:
-    		imc_rank = 'd';
-
-    	}
-
-    	var escore_idoso = pa + pp + mob + stress + imc_rank;
-    	var result = 0;
-
-    	var normal = 'Estado nutricional normal. Paciente será reavaliado em 7 dias.';
-    	var risco = 'Risco de desnutrição. Será realizada avaliação nutricional completa em até 24h.'
-    	var desnutrido = 'Desnutrido. Será realizada avaliação nutricional completa em até 24h.'
-
-    	
-    	switch(true){
-    		case (escore_idoso>11 && escore_idoso<15):
-    		result = normal;
-    		break;
-
-    		case (escore_idoso>7 && escore_idoso<12):
-    		result = risco;
-    		break;
-
-    		case (escore_idoso>=0 && escore_idoso<8):
-    		result = desnutrido;
-    		break;
-
-    		default:
-    		result = 'erro';
-    	}
-
-
-    	console.log(result);
-
-    	$('#result_form').show();
-    	$('#result_form').html('Resultado:' + result); 
-
-    	
-
-    });
-
-});
-
-$('#step_young2').on('click',function(e){
-    e.preventDefault(e);
-
-    var pp_j = parseInt($("input[name=PP_j]:checked").val());
-    var ia = parseInt($("input[name=IA]:checked").val());
-    var eg = parseInt($("input[name=EG]:checked").val());
-    var gd = parseInt($("input[name=GD]:checked").val());
-
-    var escore = pp_j + ia + eg + gd;
-    var result = 0;
-    var risco = 'O paciente está nutricionalmente no limite do risco. Será realizada a avaliação nutricional ASG em até 24h.';
-    var nutrido = 'O paciente não está em risco nutricional. Será reavaliado novamente no dia __/__/__.'
-    
-
-    switch(true){
-    	case (escore>=3):
-    	result = risco;
-    	break;
-
-    	case (escore<3):
-    	result = nutrido;
-    	break;
-
-    	default:
-    	'erro';
-
-    }
-
-    console.log(result);
-    $('#result_form').show();
-    $('#result_form').html('Resultado: ' + result);
-
-
-    }
-    );
-
-
-
-
-       		
-//seria legal abrir alguma mostrando explicando cada gravidade da doença
-//peso e altura opcionais 
-
-//arrumar bugs
-//deixar todas as respostas obrigatórias!!!
-
-
-
-//adicionar IMC nas contas e a questao de qndo n for possivel conseguir > tem q botar o peso e a altura como opcional > como resolver isso?!?! no formulario p jovens
-
-
-
-    	
-// <div id='Circ_panturilha'>
-//     Circunfência da panturrilha (em cm)
-//     <br>
-//     <input type='radio' name='CP' value=0> Menor que 31
-// //     <input type='radio' name='CP' value=3> Maior ou igual a 31
-// if(height==0 || current_weight==0) {
-//        			var circ_panturrilha = $('#Circ_panturilha');
-//        			$('#Circ_panturilha').show(); 
-
-
-
-
-</script>
-
+	<script src="js/scripts.js"></script>
+	<script src="js/tests.js"></script>
 </body>
+
 </html>

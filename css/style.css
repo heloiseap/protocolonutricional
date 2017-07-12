@@ -1,0 +1,40 @@
+body {
+    color: #rgba(0, 0, 0, 0.8);
+    font-family: sans-serif;
+
+}
+
+input[type='submit'] {
+    color:grrgba(0, 0, 0, 0.8);
+}
+
+input[type='text'],
+input[type='number'],
+.date {
+    color:blue;
+}
+
+
+#quest_jovem1 {
+	display: none;
+}
+
+#quest_jovem2 {
+	display: none;
+}
+
+#quest_idoso {
+	display: none;
+}
+
+#PP_significativa {
+	display: none;
+}
+
+#Estado_geral {
+	display: none;
+}
+
+#result_form {
+	display: none;
+}
