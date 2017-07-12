@@ -77,7 +77,7 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
 
         } else {
-            console.log('aaa');
+            
             result = 'Estado nutricional normal. Paciente será reavaliado em 7 dias.';
             $('#result_form').show();
             $('#result_form').html('Resultado:' + result);
@@ -129,7 +129,26 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
         var pp = parseInt($("input[name=PP]:checked").val());
         var mob = parseInt($("input[name=Mob]:checked").val());
         var stress = parseInt($("input[name=Stress]:checked").val());
-        var imc = parseInt($('#imc').val());
+        var cp = parseInt($('input[name=CP]:checked').val());
+        
+       
+        var weight_elder = parseInt($('#current_w').val());
+        var height_elder = parseInt($('#height_opc').val());
+
+        console.log(weight_elder + height_elder);
+
+        var imc = 0
+
+        if (weight_elder==0 || height_elder == 0) {
+            imc = 0
+        }
+
+        else {
+            var imc = weight_elder * Math.pow(10,4)/(height_elder*height_elder) ;
+        console.log(imc);
+        }
+
+
         var imc_rank = 0;
 
         switch (true) {
@@ -150,11 +169,12 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
                 break;
 
             default:
-                imc_rank = 'd';
+                imc_rank = 0;
 
         }
+        console.log(imc_rank+cp);
 
-        var escore_idoso = pa + pp + mob + stress + imc_rank;
+        var escore_idoso = pa + pp + mob + stress + imc_rank + cp;
         var result = 0;
 
         var normal = 'Estado nutricional normal. Paciente será reavaliado em 7 dias.';
@@ -196,7 +216,7 @@ $('#current_w_box').on('click',function(e){
 
     if (checked==true){
         $('#current_w').attr('disabled',true);
-        
+        $('#current_w').attr('value',0)
     }
 
     else {
@@ -204,6 +224,24 @@ $('#current_w_box').on('click',function(e){
     }
     
 });
+
+$('#height_opc_box').on('click',function(e){
+    var checked = $(this).is(':checked');
+
+    if (checked==true){
+        $('#height_opc').attr('disabled',true);
+        $('#height_opc').attr('value',0);
+        
+        
+    }
+
+    else {
+       $('#height_opc').attr('disabled',false); 
+    }
+    
+});
+
+
 
 //seria legal abrir alguma mostrando explicando cada gravidade da doença
 //peso e altura opcionais 

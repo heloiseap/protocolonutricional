@@ -34,7 +34,10 @@ input[type='number'],
 #Estado_geral {
 	display: none;
 }
-
+#circ_panturrilha {
+	display: none;
+}
 #result_form {
 	display: none;
 }
+
