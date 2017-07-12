@@ -78,12 +78,6 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
     $('#step_elder').on('click', function (e) {
         e.preventDefault(e);
 
-        //    var current_weight= $('#current_weight').val();
-        // var usual_weight= $('#usual_weight').val();
-        // var height= $('#height').val();
-        // var imc = current_weight*Math.pow(10,4)/(height*height);
-
-
         var pa = parseInt($("input[name=PA]:checked").val());
         var pp = parseInt($("input[name=PP]:checked").val());
         var mob = parseInt($("input[name=Mob]:checked").val());

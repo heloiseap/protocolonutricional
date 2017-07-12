@@ -10,6 +10,13 @@
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -40,7 +47,10 @@
 		<br> Data:
 		<input class='date' type='date' name: 'Data'>
 		<br>
-		<input id='step1' type='submit' value=Enviar>
+
+		<button id='step1' type='button' class="btn btn-default btn">Próximo
+		<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </button>
+		
 		<br>
 		<br>
 
@@ -69,7 +79,10 @@
 			<input type='radio' name='Ingestion_reduction' value=0> Não
 
 			<br>
-			<input id='step_young1' type='submit' value=Enviar>
+			<div class="btn-group" role="group" aria-label="...">
+			<button id='step_young1' type='button' class="btn btn-default btn">Próximo
+		    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </button>
+			
 
 		</div>
 
@@ -123,7 +136,7 @@
 			</div>
 
 			<br>
-			<input id='step_young2' type='submit' value=Enviar>
+			<button type="button" id='step_young1'class="btn btn-default">Enviar</button>
 			<br>
 			<br>
 
@@ -181,7 +194,7 @@
 			<input type="radio" name="PN" value=2> Sem problemas psicológicos
 
 			<br>
-			<input id='step_elder' type='submit' value=Enviar>
+			<button type="button" id='step_elder'class="btn btn-default">Enviar</button>
 			<br>
 
 
