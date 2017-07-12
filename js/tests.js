@@ -25,7 +25,7 @@ $(document).ready(function () {
     });
 
     $('input[type=radio]').each(function(i,el){
-        if ($(el).val() == 0) {
+        if ($(el).val() == 1) {
             $(el).attr('checked', 'checked');
         }
     });
