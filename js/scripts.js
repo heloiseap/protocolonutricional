@@ -150,45 +150,6 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
 });
 
-$('#step_young2').on('click', function (e) {
-    e.preventDefault(e);
-
-    var pp_j = parseInt($("input[name=PP_j]:checked").val());
-    var ia = parseInt($("input[name=IA]:checked").val());
-    var eg = parseInt($("input[name=EG]:checked").val());
-    var gd = parseInt($("input[name=GD]:checked").val());
-
-    var escore = pp_j + ia + eg + gd;
-    var result = 0;
-    var risco =
-        'O paciente está nutricionalmente no limite do risco. Será realizada a avaliação nutricional ASG em até 24h.';
-    var nutrido = 'O paciente não está em risco nutricional. Será reavaliado novamente no dia __/__/__.'
-
-
-    switch (true) {
-        case (escore >= 3):
-            result = risco;
-            break;
-
-        case (escore < 3):
-            result = nutrido;
-            break;
-
-        default:
-            'erro';
-
-    }
-
-    console.log(result);
-    $('#result_form').show();
-    $('#result_form').html('Resultado: ' + result);
-
-
-});
-
-
-
-
 
 //seria legal abrir alguma mostrando explicando cada gravidade da doença
 //peso e altura opcionais 
