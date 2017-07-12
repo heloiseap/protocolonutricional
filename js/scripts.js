@@ -42,7 +42,7 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
 
         if (sickness == 1 || unintentional_WL == 1 || ingestion_re == 1) {
-            console.log('ok');
+            
             var quest_jovem2 = $('#quest_jovem2');
             $('#quest_jovem2').show();
 
@@ -65,7 +65,11 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
 
         } else {
-            console.log('0');
+            console.log('aaa');
+            result = 'Estado nutricional normal. Paciente será reavaliado em 7 dias.';
+            $('#result_form').show();
+            $('#result_form').html('Resultado:' + result);
+
         }
 
     });
