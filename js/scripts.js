@@ -33,6 +33,18 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
         e.preventDefault(e);
 
+        if($("#current_w_box").is(':checked')) {
+         $("#current_w").disable();} 
+        //else
+        // $("#txtAge").enable();  // unchecked
+
+        var current_weight = $('#current_weight_opc').val();
+        var usual_weight = $('#usual_weight_opc').val();
+        var height = $('#height_opc').val();
+        var imc = current_weight * Math.pow(10, 4) / (height * height);
+
+               
+
         var sickness = parseInt($("input[name=Sickness]:checked").val());
 
         var unintentional_WL = parseInt($("input[name=Unintentional_WL]:checked").val());
@@ -179,6 +191,19 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
 });
 
+$('#current_w_box').on('click',function(e){
+    var checked = $(this).is(':checked');
+
+    if (checked==true){
+        $('#current_w').attr('disabled',true);
+        
+    }
+
+    else {
+       $('#current_w').attr('disabled',false); 
+    }
+    
+});
 
 //seria legal abrir alguma mostrando explicando cada gravidade da doença
 //peso e altura opcionais 
