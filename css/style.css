@@ -14,16 +14,7 @@ input[type='number'],
     color:blue;
 }
 
-
-#quest_jovem1 {
-	display: none;
-}
-
-#quest_jovem2 {
-	display: none;
-}
-
-#quest_idoso {
+.questions {
 	display: none;
 }
 
