@@ -23,7 +23,12 @@ input[type='number'],
 	display: none;
 }
 
-#quest_idoso {
+#quest_idoso1 {
+	display: none;
+}
+
+
+#quest_idoso2 {
 	display: none;
 }
 
@@ -34,6 +39,12 @@ input[type='number'],
 #Estado_geral {
 	display: none;
 }
+
+
+#imc_idoso {
+	display: none;
+}
+
 #circ_panturrilha {
 	display: none;
 }

@@ -21,9 +21,9 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
 
         } else {
-            var quest_idoso = $('#quest_idoso');
-            $('#quest_idoso').show();
-            var questionario = $('#questionario').html(quest_idoso);
+            var quest_idoso1 = $('#quest_idoso1');
+            $('#quest_idoso1').show();
+            var questionario = $('#questionario').html(quest_idoso1);
 
 
         }
@@ -32,11 +32,6 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
     $('#step_young1').on('click', function (e) {
 
         e.preventDefault(e);
-
-        if($("#current_w_box").is(':checked')) {
-         $("#current_w").disable();} 
-        //else
-        // $("#txtAge").enable();  // unchecked
 
         var current_weight = $('#current_weight_opc').val();
         var usual_weight = $('#usual_weight_opc').val();
@@ -95,7 +90,7 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
         var gd = parseInt($("input[name=GD]:checked").val());
 
         var escore = pp_j + ia + eg + gd;
-        var result = 0;
+        var result = '?';
         var risco =
             'O paciente está nutricionalmente no limite do risco. Será realizada a avaliação nutricional ASG em até 24h.';
         var nutrido = 'O paciente não está em risco nutricional. Será reavaliado novamente no dia __/__/__.'
@@ -122,49 +117,62 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
     });
 
-    $('#step_elder').on('click', function (e) {
+     $('#step_elder1').on('click', function (e) {
+        e.preventDefault(e);
+        var weight_elder = parseInt($('#current_w').val());
+        var height_elder = parseInt($('#height_opc').val());
+
+        var imc_idoso = weight_elder * Math.pow(10,4)/(height_elder*height_elder);
+
+        if (weight_elder==0 || height_elder == 0) {
+            imc_idoso = 0;
+           
+        }
+
+        $('#imc_idoso').val(imc_idoso);
+
+        $('#quest_idoso2').show();
+        
+     });
+
+    $('#step_elder2').on('click', function (e) {
         e.preventDefault(e);
 
         var pa = parseInt($("input[name=PA]:checked").val());
         var pp = parseInt($("input[name=PP]:checked").val());
         var mob = parseInt($("input[name=Mob]:checked").val());
         var stress = parseInt($("input[name=Stress]:checked").val());
-        var cp = parseInt($('input[name=CP]:checked').val());
+        var cp = 0;
+        var imc_idoso = parseInt($('#imc_idoso').val()); //n ta pegando isso
+
+        console.log(imc_idoso);
         
-       
-        var weight_elder = parseInt($('#current_w').val());
-        var height_elder = parseInt($('#height_opc').val());
+         if (imc_idoso==0) {
+            $('#circ_panturrilha').show();
+            var cp = parseInt($("input[name=CP]:checked").val());
 
-        console.log(weight_elder + height_elder);
-
-        var imc = 0
-
-        if (weight_elder==0 || height_elder == 0) {
-            imc = 0
         }
 
         else {
-            var imc = weight_elder * Math.pow(10,4)/(height_elder*height_elder) ;
-        console.log(imc);
+            var cp=0;
         }
-
 
         var imc_rank = 0;
 
         switch (true) {
-            case (imc < 19):
+            case (imc_idoso < 19):
                 imc_rank = 0;
                 break;
 
-            case (imc >= 19 && imc < 21):
+            case (imc_idoso >= 19 && imc < 21):
                 imc_rank = 1;
                 break;
 
-            case (imc >= 21 && imc < 23):
+            case (imc_idoso >= 21 && imc < 23):
                 imc_rank = 2;
                 break;
 
-            case (imc >= 23):
+            case (imc_idoso >= 23):
                 imc_rank = 3;
                 break;
 
@@ -172,7 +180,7 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
                 imc_rank = 0;
 
         }
-        console.log(imc_rank+cp);
+        console.log(imc_rank);
 
         var escore_idoso = pa + pp + mob + stress + imc_rank + cp;
         var result = 0;
@@ -246,15 +254,8 @@ $('#height_opc_box').on('click',function(e){
 //seria legal abrir alguma mostrando explicando cada gravidade da doença
 //peso e altura opcionais 
 
-//arrumar bugs
-//deixar todas as respostas obrigatórias!!!
-
-
-
-//adicionar IMC nas contas e a questao de qndo n for possivel conseguir > tem q botar o peso e a altura como opcional > como resolver isso?!?! no formulario p jovens
-
-
-
+//IDOSO: MEU ANJO TEM Q BOTAR UM BOTAO DEPOIS DE BOTAR O PESO ALTURA ETC SE N NUNCA Q VAI ABRIR A DESGRAÇA DO CP!! 
+//JOVEM: CONSIDERAR CASO EM Q N TEM ND MARCADO (QNDO A PERGUNTA N APARECER)
 
 // <div id='Circ_panturilha'>
 //     Circunfência da panturrilha (em cm)

@@ -20,6 +20,9 @@
 
 	<h3>IMC: <input id='imc' disabled></input>
 	</h3>
+	<div>
+	<input id='imc_idoso' disabled></input> 
+	</div>
 
 	<form id='formulario_triagem' method="POST">
 
@@ -131,7 +134,7 @@
 
 		</div>
 
-		<div id='quest_idoso'>
+		<div id='quest_idoso1'>
 
 		
 			<br> Peso atual(kg)
@@ -140,10 +143,20 @@
 
 			<br> Altura(cm)
 			<input id='height_opc' type='number' name='Altura' value="160">
-			<input type="checkbox" id="height_opc_box" >Não pode-se informar.   
+			<input type="checkbox" id="height_opc_box" >Não pode-se informar.
+			
+			
+			<br>
+			<button type="button" id='step_elder1' class="btn btn-default">Próximo</button>
+			<br>
+			<br> 
 
+			
 
+		</div>
 
+	
+		<div id='quest_idoso2'>
 			<br>
 			<b>Prejuizo de Estado Nutricional</b>
 
@@ -203,7 +216,7 @@
 		   </div>
 
 			<br>
-			<button type="button" id='step_elder' class="btn btn-default">Enviar</button>
+			<button type="button" id='step_elder2' class="btn btn-default">Enviar</button>
 			<br>
 
 		</div>
