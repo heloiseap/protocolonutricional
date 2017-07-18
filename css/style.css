@@ -1,17 +1,18 @@
 body {
-    color: #rgba(0, 0, 0, 0.8);
-    font-family: sans-serif;
+   
+	font-family: sans-serif;
+	text-align: center;
 
 }
 
 input[type='submit'] {
-    color:grrgba(0, 0, 0, 0.8);
+    color: blue;
 }
 
 input[type='text'],
 input[type='number'],
 .date {
-    color:blue;
+     color: #rgba(0, 0, 0, 0.8);
 }
 
 
@@ -58,5 +59,8 @@ input[type='number'],
 }
 #result_form {
 	display: none;
+}
+#result_form {
+	font-size: 20px
 }
 
