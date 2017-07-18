@@ -1,21 +1,4 @@
-body {
-    color: #rgba(0, 0, 0, 0.8);
-    font-family: sans-serif;
-
-}
-
-input[type='submit'] {
-    color:grrgba(0, 0, 0, 0.8);
-}
-
-input[type='text'],
-input[type='number'],
-.date {
-    color:blue;
-}
-
-
-#quest_jovem1 {
+.questions {
 	display: none;
 }
 
@@ -29,6 +12,7 @@ input[type='number'],
 
 
 #quest_idoso2 {
+#PP_significativa {
 	display: none;
 }
 
