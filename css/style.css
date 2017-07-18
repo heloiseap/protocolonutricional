@@ -33,7 +33,7 @@ input[type='number'],
 }
 
 #PP_significativa {
-	display: none;
+	display: none;	
 }
 
 #Estado_geral {
@@ -41,8 +41,16 @@ input[type='number'],
 }
 
 
+#imc {
+	display: none;
+} 
+
+
 #imc_idoso {
 	display: none;
+} 
+#perda_peso {
+	display: none
 }
 
 #circ_panturrilha {

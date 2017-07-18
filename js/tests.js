@@ -3,7 +3,7 @@ $(document).ready(function () {
     let patientData = {
         name: 'Tiago Dakuzaku',
         age: '31',
-        current_weight: '70',
+        current_weight: '50',
         usual_weight: '65',
         height: '170',
         date: '1985-08-17'

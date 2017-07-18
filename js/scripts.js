@@ -6,12 +6,12 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
         var name = $('#name').val();
         var age = $('#age').val();
-        var current_weight = $('#current_weight').val();
-        var usual_weight = $('#usual_weight').val();
-        var height = $('#height').val();
-        var imc = current_weight * Math.pow(10, 4) / (height * height);
+        // var current_weight = $('#current_weight').val();
+        // var usual_weight = $('#usual_weight').val();
+        // var height = $('#height').val();
+        // var imc = current_weight * Math.pow(10, 4) / (height * height);
 
-        $('#imc').val(imc);
+        // 
 
         if (age < 60) {
             var quest_jovem1 = $('#quest_jovem1');
@@ -33,12 +33,12 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
         e.preventDefault(e);
 
-        var current_weight = $('#current_weight_opc').val();
-        var usual_weight = $('#usual_weight_opc').val();
-        var height = $('#height_opc').val();
-        var imc = current_weight * Math.pow(10, 4) / (height * height);
-
-               
+        var current_weight = $('#current_weight').val();
+        var usual_weight = $('#usual_weight').val();
+        var height = $('#height').val();
+        // var imc = current_weight * Math.pow(10, 4) / (height * height);
+        // var weight_loss = parseInt(100*(1 - (current_weight / usual_weight)));
+                     
 
         var sickness = parseInt($("input[name=Sickness]:checked").val());
 
@@ -54,11 +54,12 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
             $('#quest_jovem2').show();
 
             var quest_jovem1 = $('#quest_jovem1').html(quest_jovem2);
-            var current_weight = $('#current_weight').val();
-            var usual_weight = $('#usual_weight').val();
-            var height = $('#height').val();
-            var imc = current_weight * Math.pow(10, 4) / (height * height);
-            var weight_loss = parseInt(100 * (1 - (current_weight / usual_weight)));
+            var imc = parseInt(current_weight * Math.pow(10, 4) / (height * height));
+
+            $('#imc').val(imc);
+            var weight_loss = parseInt(100*(1 - (current_weight / usual_weight)));
+            $('#perda_peso').val(weight_loss);
+
 
             if (imc <= 18.5) {
                 var estado_geral = $('#Estado_geral');
@@ -84,15 +85,31 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
     $('#step_young2').on('click', function (e) {
         e.preventDefault(e);
 
+        var imc = parseInt($('#imc').val());
+        var weight_loss = parseInt($('#perda_peso').val());
+
+
         var pp_j = parseInt($("input[name=PP_j]:checked").val());
-        var ia = parseInt($("input[name=IA]:checked").val());
         var eg = parseInt($("input[name=EG]:checked").val());
+        var ia = parseInt($("input[name=IA]:checked").val());
         var gd = parseInt($("input[name=GD]:checked").val());
 
+        if (weight_loss >=5){
+             var pp_j = 0;
+        };
+        
+        if (imc <=18.5){
+            var eg = 0;
+        };          
+               
         var escore = pp_j + ia + eg + gd;
+
+        console.log(escore);
+     
+        
+
         var result = '?';
-        var risco =
-            'O paciente está nutricionalmente no limite do risco. Será realizada a avaliação nutricional ASG em até 24h.';
+        var risco = 'O paciente está nutricionalmente no limite do risco. Será realizada a avaliação nutricional ASG em até 24h.';
         var nutrido = 'O paciente não está em risco nutricional. Será reavaliado novamente no dia __/__/__.'
 
 
@@ -129,8 +146,19 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
            
         }
 
+        if (imc_idoso==0) {
+            $('#circ_panturrilha').show();
+            var cp = parseInt($("input[name=CP]:checked").val());
+
+        }
+
+        else {
+            var cp=0;
+        }
+
         $('#imc_idoso').val(imc_idoso);
 
+        
         $('#quest_idoso2').show();
         
      });
@@ -143,20 +171,12 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
         var mob = parseInt($("input[name=Mob]:checked").val());
         var stress = parseInt($("input[name=Stress]:checked").val());
         var cp = 0;
-        var imc_idoso = parseInt($('#imc_idoso').val()); //n ta pegando isso
-
-        console.log(imc_idoso);
         
-         if (imc_idoso==0) {
-            $('#circ_panturrilha').show();
-            var cp = parseInt($("input[name=CP]:checked").val());
 
-        }
+        var imc_idoso = parseInt($('#imc_idoso').val());
 
-        else {
-            var cp=0;
-        }
-
+        console.log(imc_idoso);      
+        
         var imc_rank = 0;
 
         switch (true) {
@@ -177,7 +197,7 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
                 break;
 
             default:
-                imc_rank = 0;
+                imc_rank = 'erro';
 
         }
         console.log(imc_rank);
@@ -252,16 +272,5 @@ $('#height_opc_box').on('click',function(e){
 
 
 //seria legal abrir alguma mostrando explicando cada gravidade da doença
-//peso e altura opcionais 
 
-//IDOSO: MEU ANJO TEM Q BOTAR UM BOTAO DEPOIS DE BOTAR O PESO ALTURA ETC SE N NUNCA Q VAI ABRIR A DESGRAÇA DO CP!! 
-//JOVEM: CONSIDERAR CASO EM Q N TEM ND MARCADO (QNDO A PERGUNTA N APARECER)
 
-// <div id='Circ_panturilha'>
-//     Circunfência da panturrilha (em cm)
-//     <br>
-//     <input type='radio' name='CP' value=0> Menor que 31
-// //     <input type='radio' name='CP' value=3> Maior ou igual a 31
-// if(height==0 || current_weight==0) {
-//        			var circ_panturrilha = $('#Circ_panturilha');
-//        			$('#Circ_panturilha').show();
