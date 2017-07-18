@@ -136,6 +136,7 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
      $('#step_elder1').on('click', function (e) {
         e.preventDefault(e);
+
         var weight_elder = parseInt($('#current_w').val());
         var height_elder = parseInt($('#height_opc').val());
 
@@ -157,7 +158,6 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
         }
 
         $('#imc_idoso').val(imc_idoso);
-
         
         $('#quest_idoso2').show();
         
