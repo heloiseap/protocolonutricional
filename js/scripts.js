@@ -6,12 +6,7 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
 
         var name = $('#name').val();
         var age = $('#age').val();
-        // var current_weight = $('#current_weight').val();
-        // var usual_weight = $('#usual_weight').val();
-        // var height = $('#height').val();
-        // var imc = current_weight * Math.pow(10, 4) / (height * height);
-
-        // 
+        
 
         if (age < 60) {
             var quest_jovem1 = $('#quest_jovem1');
