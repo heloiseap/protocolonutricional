@@ -156,7 +156,7 @@
 
 			</div>
 
-			<div id='quest_jovem2'>
+			<div id='quest_jovem2'>																																																										
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<h3>Prejuizo de Estado Nutricional</h3>
@@ -258,6 +258,8 @@
 
 					</div>
 				</div>
+				</div>
+			</div>
 
 				<div id='quest_idoso1'>
 					<div class="panel panel-default">
@@ -272,7 +274,7 @@
                             </label>
 							</div>
 
-						    <label for="height_opc">Peso atual do paciente</label>
+							<label for="height_opc">Altura do paciente</label>
 							<input type="number" class="form-control" id="height_opc" placeholder="Em centímetros">
 							<div class="form-check">
 								<label class="form-check-label">
@@ -291,7 +293,9 @@
 
 
 							<br>
-							<button type="button" id='step_elder1' class="btn btn-default">Próximo</button>
+							<br><button id='step_elder1' type="submit" class="btn btn-default btn">Próximo
+				            <span class="glyphicon glyphicon-menu-right"  aria-hidden="true"></span></button>
+							<!-- <button type="button" id='step_elder1' class="btn btn-default">Próximo</button> -->
 							<br>
 							<br>
 						</div>
@@ -306,7 +310,59 @@
 
 							<h3>Prejuizo de Estado Nutricional</h3>
 
-							<br>
+							<legend> Nos ultimos três meses, houve diminuição da ingestão alimentar devido a perda de apetite, problemas digestivos ou
+								dificuldade para mastigar?</legend>
+							<div class="form-check">
+								<label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="PA" value=0>
+                            Dimnuição severa.
+                        </label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="PA" value=1>
+								Diminuição moderada.
+							</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="PA" value=2>
+								Sem diminuição.
+							</label>
+							</div>
+
+							<!-- </div> -->
+							<legend> Perda de peso nos últimos três meses:</legend>
+							<div class="form-check">
+								<label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="PP" value=0>
+                            Superior a três quilogramas.
+                        </label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="PP" value=1>
+								Não sabe-se.
+							</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="PP" value=2>
+								Entre um a três quilos.
+							</label>
+							</div>
+
+							<div class="form-check">
+								<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="PP" value=3>
+								Sem perda de peso.
+							</label>
+							</div>
+
+							<!-- </div> -->
+
+
+							<!-- <br>
 							<br> Nos ultimos três meses, houve diminuição da ingestão alimentar devido a perda de apetite, problemas digestivos
 							ou dificuldade para mastigar?
 							<br>
@@ -314,9 +370,9 @@
 							<br>
 							<input type="radio" name="PA" value=1> Diminuição moderada
 							<br>
-							<input type="radio" name="PA" value=2> Sem diminuição
+							<input type="radio" name="PA" value=2> Sem diminuição -->
 
-							<br>
+							<!-- <br>
 							<br> Perda de peso nos últimos três meses
 							<br>
 							<input type="radio" name="PP" value=0> Superior a três quilos
@@ -325,39 +381,108 @@
 							<br>
 							<input type="radio" name="PP" value=2> Entre um a três quilos
 							<br>
-							<input type="radio" name="PP" value=3> Sem perda de peso
+							<input type="radio" name="PP" value=3> Sem perda de peso -->
 
-							<br>
-							<br> Mobilidade
-							<br>
-							<input type="radio" name="Mob" value=0> Restrito ao leito ou cadeira de rodas
-							<br>
-							<input type="radio" name="Mob" value=1> Deambula mas não é capaz de sair de casa
-							<br>
-							<input type="radio" name="Mob" value=2> Normal
+							<legend> Mobilidade do paciente</legend>
+							<div class="form-check">
+								<label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Mob" value=0>
+                            Restrito ao leito ou cadeira de rodas.
+                        </label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="Mob" value=1>
+								Deambula mas não é capaz de sair de casa.
+							</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="Mob" value=2>
+								Normal.
+							</label>
+							</div>
 
-							<br>
-							<br> Estresse psicológico ou doença aguda nos últimos três meses?
-							<br>
-							<input type="radio" name="Stress" value=0> Sim
-							<br>
-							<input type="radio" name="Stress" value=2> Não
 
-							<br>
-							<br> Problemas neuropsicológicos
-							<br>
-							<input type="radio" name="PN" value=0> Demência ou depressão grave
-							<br>
-							<input type="radio" name="PN" value=1> Demência leve
-							<br>
-							<input type="radio" name="PN" value=2> Sem problemas psicológicos
+							<!-- <br>
+						<br> Mobilidade
+						<br>
+						<input type="radio" name="Mob" value=0> Restrito ao leito ou cadeira de rodas
+						<br>
+						<input type="radio" name="Mob" value=1> Deambula mas não é capaz de sair de casa
+						<br>
+						<input type="radio" name="Mob" value=2> Normal -->
+
+							<legend> Estresse psicológico ou doença aguda nos últimos três meses?</legend>
+							<div class="form-check">
+								<label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="Stress" value=0>
+                            Sim.
+                        </label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="Stress" value=2>
+								Não.
+							</label>
+							</div>
+
+							<!-- <br>
+						<br> Estresse psicológico ou doença aguda nos últimos três meses?
+						<br>
+						<input type="radio" name="Stress" value=0> Sim
+						<br>
+						<input type="radio" name="Stress" value=2> Não -->
+
+
+							<legend> Problemas neuropsicológicos</legend>
+							<div class="form-check">
+								<label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="PN" value=0>
+                            Demência ou depressão grave.
+                        </label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="PN" value=1>
+								Demência leve.
+							</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="PN" value=2>
+								Sem problemas psicológicos.
+							</label>
+							</div>
+
+							<!-- <br>
+						<br> Problemas neuropsicológicos
+						<br>
+						<input type="radio" name="PN" value=0> Demência ou depressão grave
+						<br>
+						<input type="radio" name="PN" value=1> Demência leve
+						<br>
+						<input type="radio" name="PN" value=2> Sem problemas psicológicos -->
 
 							<div id='circ_panturrilha'>
-								<br>Circunferencia da panturrilha (em cm):
-								<br>
-								<input type='radio' name='CP' value=0>Menor que 31.
-								<br>
-								<input type='radio' name='CP' value=3>Maior ou igual a 31.
+								<legend>Circunferência da panturrilha (em centímetros):</legend>
+								<div class="form-check">
+									<label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="CP" value=0>
+                            Menor que 31.
+                        </label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+								<input type="radio" class="form-check-input" name="CP" value=3>
+								Marior ou igual a 31.
+							</label>
+								</div>
+								<!-- <br>Circunferencia da panturrilha (em cm):
+							<br>
+							<input type='radio' name='CP' value=0>Menor que 31.
+							<br>
+							<input type='radio' name='CP' value=3>Maior ou igual a 31. -->
 
 							</div>
 
@@ -382,7 +507,7 @@
 			</div>
 
 			<script src="js/scripts.js"></script>
-			<script src="js/tests.js"></script>
+			<!-- <script src="js/tests.js"></script> -->
 </body>
 
 </html>

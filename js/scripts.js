@@ -226,7 +226,7 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
         console.log(result);
 
         $('#result_form').show();
-        $('#result_form').html('Resultado:' + result);
+        $('#result_form').html('Resultado: ' + result);
 
 
 
