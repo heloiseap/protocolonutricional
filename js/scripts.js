@@ -118,7 +118,7 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
                 break;
 
             default:
-                'erro';
+                'erro jovem';
 
         }
 
@@ -192,7 +192,7 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
                 break;
 
             default:
-                imc_rank = 'erro';
+                imc_rank = 'erro no imc_rank';
 
         }
         console.log(imc_rank);
@@ -219,7 +219,7 @@ $(document).ready(function () { //carregar funcao depois do carregamento da pag
                 break;
 
             default:
-                result = 'erro';
+                result = 'erro idoso';
         }
 
 
